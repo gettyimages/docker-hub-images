@@ -18,3 +18,13 @@ You can use this version with the following:
 ```shell
 docker run -i -t hashicorp/terraform:full <command>
 ```
+
+##### `full-all`
+This is mostly to get the binaries for various platforms for common platforms.
+```shell
+docker build -f Dockerfile-full-all -t terraform-all . && \
+docker run -it --name tf terraform-all && \
+docker cp tf:/go/src/github.com/hashicorp/terraform/pkg /tmp/ && \
+echo "DO SOMETHING WITH THE PACKAGES" && \
+docker rm tf
+```
