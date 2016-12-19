@@ -1,7 +1,7 @@
 FROM golang:alpine
 MAINTAINER "HashiCorp Terraform Team <terraform@hashicorp.com>"
 
-ENV TERRAFORM_VERSION=0.7.5
+ENV TERRAFORM_VERSION=0.8.1
 ENV XC_ARCH="amd64"
 ENV XC_OS="linux darwin windows"
 
@@ -9,7 +9,7 @@ RUN apk add --update git bash zip
 
 WORKDIR $GOPATH/src/github.com/hashicorp/terraform
 RUN git clone https://github.com/gettyimages/terraform.git ./ && \
-    git checkout getty-vmware-patch && \
+    git checkout getty-vmware-build-0_8_1 && \
     /bin/bash scripts/build.sh
 
 WORKDIR $GOPATH
